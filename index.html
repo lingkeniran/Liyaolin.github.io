@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>主页</title>
+</head>
+
+<body>
+    <!-- 页眉区 -->
+    <div class="header">
+        <div class="header-logo">
+            李耀琳的个人网站
+        </div>
+        <!-- 目录区 -->
+        <div class="side-menu" id="sideMenu">
+            <el-menu 
+                default-active="1" 
+                class="el-menu-demo" 
+                mode="horizontal" 
+                @select="handleSelect"
+                background-color="#F7F5EF"
+                active-text-color="#FFC000"
+                text-color="#525252">
+                <el-menu-item index="1">主页</el-menu-item>
+                <el-menu-item index="2">简历</el-menu-item>
+                <el-menu-item index="3">作品集</el-menu-item>
+                <el-menu-item index="4">爱好</el-menu-item>
+                <el-menu-item index="5">留言板</el-menu-item>
+            </el-menu>
+        </div>
+        <div class="date" id="dateTime"></div>
+    </div>
+    <!-- end of header -->
+
+    <!-- 主体区域 -->
+    <div class="mainContainer" id="mainContainer">
+        <el-col :span="12">
+            <el-card class="card" shadow="hover" :body-style="{ padding: '0px' }" onclick="gotoCV()">
+                <img src="img/1.png" class="image" width="300px">
+                <div class="card-text">
+                    个人简历
+                </div>
+            </el-card>
+        </el-col>
+        <el-col :span="12">
+            <el-card class="card" shadow="hover" :body-style="{ padding: '0px' }" onclick="gotoProjects()">
+                <img src="img/2.png" class="image" width="300px">
+                <div class="card-text">
+                    作品集
+                </div>
+            </el-card>
+        </el-col>
+        <el-col :span="12">
+            <el-card class="card" shadow="hover" :body-style="{ padding: '0px' }" onclick="gotoInterests()">
+                <img src="img/3.png" class="image" width="300px">
+                <div class="card-text">
+                    兴趣爱好
+                </div>
+            </el-card>
+        </el-col>
+    </div>
+    <!-- end of main Container -->
+
+    <!-- 页脚区 -->
+    <div class="footer">
+        <div class="footer-1">邮箱：lylelf@163.com</div>
+        <div class="footer-2">QQ：819044267</div>
+    </div>
+    <!-- end of footer -->
+
+</body>
+
+<style>
+    @import url("css/global.css");
+    @import url("//unpkg.com/element-ui@2.13.2/lib/theme-chalk/index.css");
+    /* 主体区域 */
+    .mainContainer{
+        width: 1000px;
+        margin: 60px auto;
+        margin-bottom: 0;
+        height: 420px;
+    }
+    .el-col{
+        height: 420px;
+        width: 300px;
+        margin-right: 20px;
+    }
+    .card{
+        transition: all 1.5s;
+        height: 420px;
+    }
+    /* 鼠标悬浮在卡片上时放大 */
+    .card:hover{
+        /* 鼠标箭头变化 */
+        cursor: pointer;
+        /*放大倍数*/
+        transform: scale(1.1);
+    }
+    .card-text{
+        font-family: 'Microsoft YaHei';
+        margin-top: 30px;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<!-- 在引入element前先引入vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入element的js -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<!-- 目录 -->
+<script>
+    var Main = {
+        data() {
+            return {
+                activeIndex: 1
+            };
+        },
+        methods: {
+            handleSelect(key, keyPath) {
+                console.log(key, keyPath);
+                if(key==1){
+                    window.location.href="index.html"
+                }else if(key==2){
+                    window.location.href="cv.html"
+                }else if(key==3){
+                    window.location.href="projects.html"
+                }else if(key==4){
+                    window.location.href="interests.html"
+                }else{
+                    window.location.href="messageBoard.html"
+                }
+            },
+        }
+    }
+var Ctor = Vue.extend(Main)
+new Ctor().$mount('#sideMenu')
+new Ctor().$mount('#mainContainer')
+</script>
+
+<!-- 获取实时时间 -->
+<script type="text/javascript"> 
+    setInterval(function(){   
+        var date = new Date();   
+        var year = date.getFullYear();    //获取当前年份   
+        var mon = date.getMonth()+1;      //获取当前月份   
+        var da = date.getDate();          //获取当前日   
+        var day = date.getDay();          //获取当前星期几   
+        switch(day){
+            case 0:weekday='日';break;
+            case 1:weekday='一';break;
+            case 2:weekday='二';break;
+            case 3:weekday='三';break;
+            case 4:weekday='四';break;
+            case 5:weekday='五';break;
+            case 6:weekday='六';break;
+        }
+        var h = date.getHours();          //获取小时   
+        var m = date.getMinutes();        //获取分钟   
+        var s = date.getSeconds();        //获取秒   
+        var d = document.getElementById('dateTime');    
+        d.innerHTML='当前时间： '+year+'年'+mon+'月'+da+'日 '+'星期'+weekday+' '+h+':'+m+':'+s;  
+    },10);
+    // 点击卡片跳转
+    function gotoCV(){
+        window.location.href='cv.html'
+    }
+    function gotoProjects(){
+        window.location.href='projects.html'
+    };
+    function gotoInterests(){
+        window.location.href='interests.html'
+    };
+</script>
+
+<!-- live2d白猫 -->
+<script src="/live2d/l2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.init({
+    model: {
+        jsonPath: '/live2d/tororo/assets/tororo.model.json',
+    },
+    display: {
+        superSample: 2,
+        width: 100,
+        height: 100,
+        position: 'right',
+        hOffset: 0,
+        vOffset: 0,
+    },
+    mobile: {
+        show: true,
+        scale: 1,
+        motion: true,
+    },
+    react: {
+        opacityDefault: 0.8,
+        opacityOnHover: 0.2,
+    }
+  })
+</script>
+<!-- 爱心特效 -->
+<script type="text/javascript">
+
+    (function(window,document,undefined){
+        var hearts = [];
+        window.requestAnimationFrame = (function(){
+            return window.requestAnimationFrame || 
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function (callback){
+                    setTimeout(callback,1000/60);
+                }
+        })();
+        init();
+        function init(){
+            css(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+            attachEvent();
+            gameloop();
+        }
+        function gameloop(){
+            for(var i=0;i<hearts.length;i++){
+                if(hearts[i].alpha <=0){
+                    document.body.removeChild(hearts[i].el);
+                    hearts.splice(i,1);
+                    continue;
+                }
+                hearts[i].y--;
+                hearts[i].scale += 0.004;
+                hearts[i].alpha -= 0.013;
+                hearts[i].el.style.cssText = "left:"+hearts[i].x+"px;top:"+hearts[i].y+"px;opacity:"+hearts[i].alpha+";transform:scale("+hearts[i].scale+","+hearts[i].scale+") rotate(45deg);background:"+hearts[i].color;
+            }
+            requestAnimationFrame(gameloop);
+        }
+        function attachEvent(){
+            var old = typeof window.onclick==="function" && window.onclick;
+            window.onclick = function(event){
+                old && old();
+                createHeart(event);
+            }
+        }
+        function createHeart(event){
+            var d = document.createElement("div");
+            d.className = "heart";
+            hearts.push({
+                el : d,
+                x : event.clientX - 5,
+                y : event.clientY - 5,
+                scale : 1,
+                alpha : 1,
+                color : randomColor()
+            });
+            document.body.appendChild(d);
+        }
+        function css(css){
+            var style = document.createElement("style");
+                style.type="text/css";
+                try{
+                    style.appendChild(document.createTextNode(css));
+                }catch(ex){
+                    style.styleSheet.cssText = css;
+                }
+                document.getElementsByTagName('head')[0].appendChild(style);
+        }
+        function randomColor(){
+            return "rgb("+(~~(Math.random()*255))+","+(~~(Math.random()*255))+","+(~~(Math.random()*255))+")";
+        }
+    })(window,document);
+    
+</script>
+
+</html>

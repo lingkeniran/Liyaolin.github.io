@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>简历</title>
+</head>
+
+<body>
+    <!-- 页眉区 -->
+    <div class="header">
+        <div class="header-logo">
+            李耀琳的个人网站
+        </div>
+        <!-- 目录区 -->
+        <div class="side-menu" id="sideMenu">
+            <el-menu 
+                default-active="2" 
+                class="el-menu-demo" 
+                mode="horizontal" 
+                @select="handleSelect"
+                background-color="#F7F5EF"
+                active-text-color="#FFC000"
+                text-color="#525252">
+                <el-menu-item index="1">主页</el-menu-item>
+                <el-menu-item index="2">简历</el-menu-item>
+                <el-menu-item index="3">作品集</el-menu-item>
+                <el-menu-item index="4">爱好</el-menu-item>
+                <el-menu-item index="5">留言板</el-menu-item>
+            </el-menu>
+        </div>
+        <div class="date" id="dateTime"></div>
+    </div>
+    <!-- end of header -->
+
+    <!-- 主体区域 -->
+    <div class="mainContainer" id="mainContainer">
+        <!-- 左边一列 -->
+        <div class="col-1">
+            <!-- 照片姓名 -->
+            <div class="identity-name">
+                <img src="img/identity.png" class="identity">
+                <div class="name">李耀琳</div>
+            </div>
+            <!-- 个人信息 -->
+            <div class="information">
+                <div class="text">姓名：李耀琳</div>
+                <div class="text">性别：女</div>
+                <div class="text">年龄：20岁</div>
+                <div class="text">居住地：江苏省徐州市</div>
+                <div class="text">电话：+86&nbsp;15050019753</div>
+                <div class="text">邮箱：lylelf@163.com</div>
+            </div>
+            <!-- 获奖经历 -->
+            <div class="award-winning">
+                <div class="title">获奖经历</div>
+                <div class="text">三等优秀学生奖学金&nbsp;&nbsp;2018.09</div>
+                <div class="text">二等优秀学生奖学金&nbsp;&nbsp;2019.09</div>
+            </div>
+            <!-- 技能 -->
+            <div class="skills-wrapper">
+                <div class="title">技能</div>
+                <div class="text">编程语言：<br>C++、Java、Python、微信小程序</div>
+                <div class="text">前端开发：<br>HTML、CSS、JavaScript</div>
+                <div class="text">前端框架：<br>Jquery、Vue</div>
+                <div class="text">数据分析软件：<br>R、SPSS、Excel</div>
+                <div class="text">其他：<br>Latex、Lingo、Word等</div>
+            </div>
+        </div>
+        <!-- 右边一列 -->
+        <div class="col-2">
+            <div class="enducation-wrapper">
+                <div class="title">教育背景</div>
+                <div class="first-line">
+                    <div>中南财经政法大学</div>
+                    <div>2017.09-2021.06</div>
+                </div>
+                <ul class="content">
+                    <li>专业：信息管理与信息系统</li>
+                    <li>绩点：3.67/4.0</li>
+                    <li>排名：前15%</li>
+                </ul>
+            </div>
+            <div class="projects-wrapper">
+                <!-- 项目实践 -->
+                <div class="title">项目实践</div>
+                <div class="project">
+                    <div class="first-line">
+                        <div>金融科技服务平台企业数据的无监督分类系统</div>
+                        <div>2019.11-2020.05</div>
+                    </div>
+                    <div class="second-line">
+                        负责人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;指导教师：刘树栋博士、彭虎锋副教授
+                    </div>
+                    <ul class="content">
+                        <li>阅读相关文献，与队友一起确定可用于衡量的指标。</li>
+                        <li>尝试用SPSS里的主成分分析方法来降数维。</li>
+                        <li>尝试用模糊c均值算法进行聚类。</li>
+                        <li>使用VUE CLI+ElementUI+Echarts完成web前端，使用雷达图和关系图实现数据可视化。</li>
+                        <li>组织每周例会，讨论出现的问题，督促进度</li>
+                    </ul>
+                </div>
+                <div class="project">
+                    <div class="first-line">
+                        <div>新浪微博抑郁用户的微博文本分析与挖掘</div>
+                        <div>2019.11-至今</div>
+                    </div>
+                    <div class="second-line">
+                        参与者&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;指导教师：刘勘教授
+                    </div>
+                    <ul class="content">
+                        <li>词频分析--对抑郁用户和非抑郁用户的微博文本进行词频统计，对结果进行处理，获得两类用户在微博博文用词上的差异，并进行分析，得出结论。</li>
+                        <li>情感倾向分析--将正常用户和抑郁用户的博文进行分词处理，然后使用词袋模型和TF-IDF模型分别计算其和情感词典文档的相似度。</li>
+                        <li>表情符号分析，即可视化分析--使用python来提取正常用户和抑郁用户所使用的表情，并使用PyEcharts库来绘制图表。</li>
+                    </ul>
+                </div>
+                <div class="project">
+                    <div class="first-line">
+                        <div>面向个性化旅游景点POI的混合式推荐系统</div>
+                        <div>2019.04-至今</div>
+                    </div>
+                    <div class="second-line">
+                        负责人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;指导教师：刘树栋博士、刘琪讲师
+                    </div>
+                    <ul class="content">
+                        <li>负责领导团队成员完成项目整体思路设计。</li>
+                        <li>在数据处理的预备工作中，使用Excel完成数据去重。</li>
+                        <li>借助Python，使用随机森林，完成数据预测，填充数据中的缺失值。</li>
+                    </ul>
+                    <div class="second-line">下一步工作：完成数据可视化分析。</div>
+                    <div class="second-line">成果：获得大创省级立项，尚未结项。</div>
+                </div>
+                <div class="project-1">
+                    <div class="first-line">
+                        <div>“绿色回收站”--垃圾回收平台</div>
+                        <div>2019.07-2019.11</div>
+                    </div>
+                    <div class="second-line">
+                        参与人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;指导教师：黄喜雨副教授
+                    </div>
+                    <ul class="content">
+                        <li>负责分析用户需求，并绘制用户、管理员和回收员这三个角色的用例图，以及用例描述。</li>
+                        <li>使用墨刀完成原型设计。</li>
+                        <li>使用微信web开发者工具完成微信小程序的设计，包括界面和前后端交互。主要使用微信小程序的原生框架，部分使用Vant Weapp组件。该小程序目前为开发版本。</li>
+                    </ul>
+                    <div class="second-line">成果：获得2019年第七届全国大学生数字媒体科技作品及创意竞赛三等奖。</div>
+                </div>
+                <!-- 专业设计 -->
+                <div class="title">专业设计</div>
+                <div class="project-1">
+                    <div class="first-line">
+                        <div>在线提问、回答系统</div>
+                        <div>2020.03</div>
+                    </div>
+                    <div class="second-line">
+                        负责人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;指导教师：屈振新副教授
+                    </div>
+                    <ul class="content">
+                        <li>负责web前端界面的原型设计。</li>
+                        <li>画用例图、序列图和活动图。</li>
+                        <li>使用Vue Cli+ElementUI+Echarts完成web前端设计和代码实现。</li>
+                        <li>撰写web前端相关文档说明。</li>
+                    </ul>
+                    <div class="second-line">成果：获得M奖（一等奖）。</div>
+                </div>
+                <!-- 竞赛经历 -->
+                <div class="title">竞赛经历</div>
+                <div class="project-1">
+                    <div class="first-line">
+                        <div>美国大学生数学建模竞赛(MCM/ICM)</div>
+                        <div>2020.03</div>
+                    </div>
+                    <div class="second-line">
+                        负责人&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;指导教师：张新香副教授
+                    </div>
+                    <ul class="content">
+                        <li>查阅文献资料，加深对题目中数据的理解。</li>
+                        <li>主持小组讨论，确定思路及具体分工。</li>
+                        <li>负责整理数据处理和模型搭建，使用LaTeX 完成论文写作。</li>
+                    </ul>
+                    <div class="second-line">成果：获得M奖（一等奖）。</div>
+                </div>
+                <!-- 社团经历 -->
+                <div class="title">社团经历</div>
+                <div class="project-1">
+                    <div class="first-line">
+                        <div>识意智创</div>
+                        <div>2018.09-至今</div>
+                    </div>
+                    <div class="second-line">
+                        成员
+                    </div>
+                    <ul class="content">
+                        <li>接受培训，通过实践学习掌握了使用Java完成web项目开发，网页设计中的HTML、CSS和JavaScript以及微信小程序开发。</li>
+                        <li>完成相关实践练习并参与“绿色回收站”--垃圾回收平台项目</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of mainContainer -->
+
+    <!-- 页脚区 -->
+    <div class="footer">
+        <div class="footer-1">邮箱：lylelf@163.com</div>
+        <div class="footer-2">QQ：819044267</div>
+    </div>
+    <!-- end of footer -->
+
+</body>
+<style>
+    @import url("css/global.css");
+    @import url("//unpkg.com/element-ui@2.13.2/lib/theme-chalk/index.css");
+    /* 主体区域 */
+    .mainContainer{
+        width: 900px;
+        height: 1300px;
+        margin: 20px auto;
+        margin-bottom: 50px;
+        display: flex;
+    }
+    /* 左边一列 */
+    .col-1{
+        background-color: rgba(221, 182, 130, 0.863);
+        border: rgba(221, 182, 130, 0.863) solid 1px;
+        width: 240px;
+        height: 1300px;
+        padding: 20px;
+    }
+    .identity-name{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .identity{ 
+        /* 身份照 */
+        overflow: hidden;
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+    }
+    .name{
+        /* 姓名 */
+        font-size: 20px;
+    }
+    .information{
+        /* 个人信息 */
+        margin-top: 30px;
+    }
+    .skills-wrapper{
+        margin-top: 30px;
+    }
+    .text{
+        font-size: 16px;
+        line-height: 2em;
+        font-family: "Microsoft YaHei";
+    }
+    .award-winning{
+        margin-top: 30px;
+    }
+    .title{
+        font-size: 20px;
+        line-height: 40px;
+        font-weight: bold;
+        color: rgb(167, 126, 3);
+    }
+    /* 右边一列 */
+    .col-2{
+        border: rgba(221, 182, 130, 0.863) solid 1px;
+        width: 660px;
+        height: 1300px;
+        padding: 20px;
+    }
+    .first-line{
+        display: flex;
+        justify-content: space-between;
+        font-weight: 500px;
+        font-size: 15px;
+        line-height: 24px;
+        font-family: "Microsoft YaHei";
+    }
+    .second-line{
+        font-size: 13px;
+        line-height: 18px;
+        font-family: "Microsoft YaHei";
+    }
+    .content{
+        font-size: 13px;
+        line-height: 18px;
+        color: rgb(51, 51, 51);
+        font-family: "Microsoft YaHei";
+    }
+    .projects-wrapper{
+        margin-top: 10px;
+    }
+    .project{
+        margin-bottom: 20px;
+    }
+    .project-1{
+        margin-bottom: 10px;
+    }
+</style>
+
+<!-- 在引入element前先引入vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入element的js -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<!-- 目录 -->
+<script>
+    var Main = {
+        data() {
+            return {
+                activeIndex: 1
+            };
+        },
+        methods: {
+            handleSelect(key, keyPath) {
+                console.log(key, keyPath);
+                if(key==1){
+                    window.location.href="index.html"
+                }else if(key==2){
+                    window.location.href="cv.html"
+                }else if(key==3){
+                    window.location.href="projects.html"
+                }else if(key==4){
+                    window.location.href="interests.html"
+                }else{
+                    window.location.href="messageBoard.html"
+                }
+            },
+        }
+    }
+var Ctor = Vue.extend(Main)
+new Ctor().$mount('#sideMenu')
+</script>
+
+<!-- 获取实时时间 -->
+<script type="text/javascript"> 
+    setInterval(function(){   
+        var date = new Date();   
+        var year = date.getFullYear();    //获取当前年份   
+        var mon = date.getMonth()+1;      //获取当前月份   
+        var da = date.getDate();          //获取当前日   
+        var day = date.getDay();          //获取当前星期几   
+        switch(day){
+            case 0:weekday='日';break;
+            case 1:weekday='一';break;
+            case 2:weekday='二';break;
+            case 3:weekday='三';break;
+            case 4:weekday='四';break;
+            case 5:weekday='五';break;
+            case 6:weekday='六';break;
+        }
+        var h = date.getHours();          //获取小时   
+        var m = date.getMinutes();        //获取分钟   
+        var s = date.getSeconds();        //获取秒   
+        var d = document.getElementById('dateTime');    
+        d.innerHTML='当前时间： '+year+'年'+mon+'月'+da+'日 '+'星期'+weekday+' '+h+':'+m+':'+s;  
+    },10)
+</script>
+
+<!-- live2d白猫 -->
+<script src="/live2d/l2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.init({
+    model: {
+        jsonPath: '/live2d/tororo/assets/tororo.model.json',
+    },
+    display: {
+        superSample: 2,
+        width: 120,
+        height: 120,
+        position: 'right',
+        hOffset: 0,
+        vOffset: 0,
+    },
+    mobile: {
+        show: true,
+        scale: 1,
+        motion: true,
+    },
+    react: {
+        opacityDefault: 0.8,
+        opacityOnHover: 0.2,
+    }
+  })
+</script>
+<!-- 爱心特效 -->
+<script type="text/javascript">
+
+    (function(window,document,undefined){
+        var hearts = [];
+        window.requestAnimationFrame = (function(){
+            return window.requestAnimationFrame || 
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function (callback){
+                    setTimeout(callback,1000/60);
+                }
+        })();
+        init();
+        function init(){
+            css(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+            attachEvent();
+            gameloop();
+        }
+        function gameloop(){
+            for(var i=0;i<hearts.length;i++){
+                if(hearts[i].alpha <=0){
+                    document.body.removeChild(hearts[i].el);
+                    hearts.splice(i,1);
+                    continue;
+                }
+                hearts[i].y--;
+                hearts[i].scale += 0.004;
+                hearts[i].alpha -= 0.013;
+                hearts[i].el.style.cssText = "left:"+hearts[i].x+"px;top:"+hearts[i].y+"px;opacity:"+hearts[i].alpha+";transform:scale("+hearts[i].scale+","+hearts[i].scale+") rotate(45deg);background:"+hearts[i].color;
+            }
+            requestAnimationFrame(gameloop);
+        }
+        function attachEvent(){
+            var old = typeof window.onclick==="function" && window.onclick;
+            window.onclick = function(event){
+                old && old();
+                createHeart(event);
+            }
+        }
+        function createHeart(event){
+            var d = document.createElement("div");
+            d.className = "heart";
+            hearts.push({
+                el : d,
+                x : event.clientX - 5,
+                y : event.clientY - 5,
+                scale : 1,
+                alpha : 1,
+                color : randomColor()
+            });
+            document.body.appendChild(d);
+        }
+        function css(css){
+            var style = document.createElement("style");
+                style.type="text/css";
+                try{
+                    style.appendChild(document.createTextNode(css));
+                }catch(ex){
+                    style.styleSheet.cssText = css;
+                }
+                document.getElementsByTagName('head')[0].appendChild(style);
+        }
+        function randomColor(){
+            return "rgb("+(~~(Math.random()*255))+","+(~~(Math.random()*255))+","+(~~(Math.random()*255))+")";
+        }
+    })(window,document);
+    
+</script>
+
+</html>

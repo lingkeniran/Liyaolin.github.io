@@ -1,0 +1,57 @@
+/* 全局配置 */
+body{
+    height: 100%;
+    margin: 0;
+    background-color: #E7E6D4;
+}
+ul{
+    margin-block-start: 0.2em;
+    margin-block-end: 0.2em;
+    padding-inline-start:20px
+}
+/* 页面布局 */
+/* 页眉区 */
+.header{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* border-bottom: antiquewhite solid 1px; */
+    background-color: rgb(247, 245, 239);
+}
+.header-logo{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 60px;
+}
+.side-menu{
+    margin-left: 150px;
+    font-size: 18px;
+    
+}
+.date{
+    margin-left: 200px;
+    font-size: 16px;
+    color: gray;
+    float: right;
+}
+
+/* 页脚区 */
+.footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    /* position: fixed; */
+    /* bottom: 0; */
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+    color: #9e9e9e;
+}
+.footer-1{
+    margin-right: 30px;
+}
+

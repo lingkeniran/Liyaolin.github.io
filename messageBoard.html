@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>留言板</title>
+</head>
+<body>
+    <!-- 页眉区 -->
+    <div class="header">
+        <div class="header-logo">
+            李耀琳的个人网站
+        </div>
+        <!-- 目录区 -->
+        <div class="side-menu" id="sideMenu">
+            <el-menu 
+                default-active="5" 
+                class="el-menu-demo" 
+                mode="horizontal" 
+                @select="handleSelect"
+                background-color="#F7F5EF"
+                active-text-color="#FFC000"
+                text-color="#525252">
+                <el-menu-item index="1">主页</el-menu-item>
+                <el-menu-item index="2">简历</el-menu-item>
+                <el-menu-item index="3">作品集</el-menu-item>
+                <el-menu-item index="4">爱好</el-menu-item>
+                <el-menu-item index="5">留言板</el-menu-item>
+            </el-menu>
+        </div>
+        <div class="date" id="dateTime"></div>
+    </div>
+    <!-- end of header -->
+
+    <!-- 主体区 -->
+    <div class="mainContainer" id="mainContainer">
+        <div class="title">留言板</div>
+        <el-input
+            type="textarea"
+            :rows="10"
+            placeholder="给我留个言吧~"
+            v-model="textarea">
+        </el-input>
+        <div class="submit-button">
+            <el-button @click="submit()" class="button" type="warning" plain>提交</el-button>
+        </div>
+        <div class="messageBox" v-if="flag">
+            <div class="message">{{message}}</div>
+            <div class="time">{{time}}</div>
+        </div>
+    </div>
+    <!-- end of mainContainer -->
+
+    <!-- 页脚区 -->
+    <div class="footer">
+        <div class="footer-1">邮箱：lylelf@163.com</div>
+        <div class="footer-2">QQ：819044267</div>
+    </div>
+    <!-- end of footer -->
+
+</body>
+
+<style>
+    @import url("css/global.css");
+    @import url("//unpkg.com/element-ui@2.13.2/lib/theme-chalk/index.css");
+    /* 在本页面重新定义footer */
+    .footer{
+        position: fixed;
+        bottom: 0;
+    }
+    /* 主体区域 */
+    .mainContainer{
+        width: 900px;
+        margin: 20px auto;
+        display: flex;
+        flex-wrap: wrap;
+        /* justify-content: center; */
+    }
+    .title{
+        font-size: 24px;
+        line-height: 50px;
+        font-weight: bold;
+        color: rgb(167, 126, 3);
+    }
+    .el-textarea{
+        font-size: 16px;
+        line-height: 28px;
+    }
+    .el-textarea:checked{
+        border: solid 1px rgb(167, 126, 3);
+    }
+    .submit-button{
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgb(167, 126, 3);
+    }
+    .button{
+        width: 90px;
+        margin-top: 10px;
+        border-radius: 25px;
+    }
+    .messageBox{
+        width: 100%;
+        border-bottom: 1px dotted rgb(202, 156, 19);
+        padding: 20px;
+        padding-right: 0px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .message{
+        width: 760px;
+    }
+    .time{
+        width: 120px;
+    }
+    .el-textarea__inner{
+        background-color: rgba(255, 252, 238, 0.61);
+    }
+</style>
+
+<!-- 在引入element前先引入vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入element的js -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<!-- 目录 -->
+<script>
+    var Main = {
+        data() {
+            return {
+                activeIndex: 1,
+                textarea:'',
+                message:'',
+                time:'',
+                flag:false,
+            };
+        },
+        methods: {
+            handleSelect(key, keyPath) {
+                console.log(key, keyPath);
+                if(key==1){
+                    window.location.href="index.html"
+                }else if(key==2){
+                    window.location.href="cv.html"
+                }else if(key==3){
+                    window.location.href="projects.html"
+                }else if(key==4){
+                    window.location.href="interests.html"
+                }else{
+                    window.location.href="messageBoard.html"
+                }
+            },
+            submit(){
+                if(this.textarea==""){
+                    this.$message.warning('您还什么都没有填哦 |･ω･｀)')
+                    return
+                }
+                this.flag=true
+                this.message=this.textarea
+                var date = new Date();   
+                var year = date.getFullYear();    //获取当前年份   
+                var mon = date.getMonth()+1;      //获取当前月份   
+                var da = date.getDate();          //获取当前日 
+                this.time=year+'年'+mon+'月'+da+'日 '
+            }
+        }
+    }
+var Ctor = Vue.extend(Main)
+new Ctor().$mount('#sideMenu')
+new Ctor().$mount('#mainContainer')
+</script>
+
+<!-- 获取实时时间 -->
+<script type="text/javascript"> 
+    setInterval(function(){   
+        var date = new Date();   
+        var year = date.getFullYear();    //获取当前年份   
+        var mon = date.getMonth()+1;      //获取当前月份   
+        var da = date.getDate();          //获取当前日   
+        var day = date.getDay();          //获取当前星期几   
+        switch(day){
+            case 0:weekday='日';break;
+            case 1:weekday='一';break;
+            case 2:weekday='二';break;
+            case 3:weekday='三';break;
+            case 4:weekday='四';break;
+            case 5:weekday='五';break;
+            case 6:weekday='六';break;
+        }
+        var h = date.getHours();          //获取小时   
+        var m = date.getMinutes();        //获取分钟   
+        var s = date.getSeconds();        //获取秒   
+        var d = document.getElementById('dateTime');    
+        d.innerHTML='当前时间： '+year+'年'+mon+'月'+da+'日 '+'星期'+weekday+' '+h+':'+m+':'+s;  
+    },10)
+</script>
+
+<!-- live2d白猫 -->
+<script src="/live2d/l2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.init({
+    model: {
+        jsonPath: '/live2d/tororo/assets/tororo.model.json',
+    },
+    display: {
+        superSample: 2,
+        width: 100,
+        height: 100,
+        position: 'right',
+        hOffset: 0,
+        vOffset: 0,
+    },
+    mobile: {
+        show: true,
+        scale: 1,
+        motion: true,
+    },
+    react: {
+        opacityDefault: 0.8,
+        opacityOnHover: 0.2,
+    }
+  })
+</script>
+<!-- 爱心特效 -->
+<script type="text/javascript">
+
+    (function(window,document,undefined){
+        var hearts = [];
+        window.requestAnimationFrame = (function(){
+            return window.requestAnimationFrame || 
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function (callback){
+                    setTimeout(callback,1000/60);
+                }
+        })();
+        init();
+        function init(){
+            css(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+            attachEvent();
+            gameloop();
+        }
+        function gameloop(){
+            for(var i=0;i<hearts.length;i++){
+                if(hearts[i].alpha <=0){
+                    document.body.removeChild(hearts[i].el);
+                    hearts.splice(i,1);
+                    continue;
+                }
+                hearts[i].y--;
+                hearts[i].scale += 0.004;
+                hearts[i].alpha -= 0.013;
+                hearts[i].el.style.cssText = "left:"+hearts[i].x+"px;top:"+hearts[i].y+"px;opacity:"+hearts[i].alpha+";transform:scale("+hearts[i].scale+","+hearts[i].scale+") rotate(45deg);background:"+hearts[i].color;
+            }
+            requestAnimationFrame(gameloop);
+        }
+        function attachEvent(){
+            var old = typeof window.onclick==="function" && window.onclick;
+            window.onclick = function(event){
+                old && old();
+                createHeart(event);
+            }
+        }
+        function createHeart(event){
+            var d = document.createElement("div");
+            d.className = "heart";
+            hearts.push({
+                el : d,
+                x : event.clientX - 5,
+                y : event.clientY - 5,
+                scale : 1,
+                alpha : 1,
+                color : randomColor()
+            });
+            document.body.appendChild(d);
+        }
+        function css(css){
+            var style = document.createElement("style");
+                style.type="text/css";
+                try{
+                    style.appendChild(document.createTextNode(css));
+                }catch(ex){
+                    style.styleSheet.cssText = css;
+                }
+                document.getElementsByTagName('head')[0].appendChild(style);
+        }
+        function randomColor(){
+            return "rgb("+(~~(Math.random()*255))+","+(~~(Math.random()*255))+","+(~~(Math.random()*255))+")";
+        }
+    })(window,document);
+    
+</script>
+</html>

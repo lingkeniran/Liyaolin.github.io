@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>兴趣爱好</title>
+</head>
+
+<body>
+    <!-- 页眉区 -->
+    <div class="header">
+        <div class="header-logo">
+            李耀琳的个人网站
+        </div>
+        <!-- 目录区 -->
+        <div class="side-menu" id="sideMenu">
+            <el-menu 
+                default-active="4" 
+                class="el-menu-demo" 
+                mode="horizontal" 
+                @select="handleSelect"
+                background-color="#F7F5EF"
+                active-text-color="#FFC000"
+                text-color="#525252">
+                <el-menu-item index="1">主页</el-menu-item>
+                <el-menu-item index="2">简历</el-menu-item>
+                <el-menu-item index="3">作品集</el-menu-item>
+                <el-menu-item index="4">爱好</el-menu-item>
+                <el-menu-item index="5">留言板</el-menu-item>
+            </el-menu>
+        </div>
+        <div class="date" id="dateTime"></div>
+    </div>
+    <!-- end of header -->
+
+    <!-- 主体区域 -->
+    <div class="mainContainer" id="mainContainer">
+        <div class="row-1">
+            <el-card class="reading-wrapper" shadow="hover" :body-style="{ padding: '0px' }">
+                <div class="title">阅读摘抄</div>
+                <div class="book-container-1">
+                    <img src="img/book1.jpg" class="image1">
+                    <div class="sentences">
+                        <ul>
+                            <li>泪水和愤怒是人之常情，但我慢慢觉得公众对记者这个职业的要求是揭示这个世界，不是挥舞拳头站在什么东西的对面。</li>
+                            <li>一个世界如果只按照强弱黑白两分，它很有可能只是一个立方体，你把它推倒，另一面朝上，原状存在。</li>
+                            <li>思想的本质是不安，一个人一旦左右摇摆，新的思想萌芽就出现了，自会剥离掉泥土露出来。</li>
+                            <li>但纠正偏见的最好方式就是让意见市场流通起来，让意见与意见较量，用理性去唤起理性。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="book-container-2">
+                    <img src="img/book2.jpg" class="image2">
+                    <div class="sentences">
+                        <ul>
+                            <li>北宋中叶以后，内忧外患、水深火热的情况愈来愈深，也反映在诗人的作品里。诗人就像古希腊悲剧里的合唱队，尤其像那种参加动作的合唱队，随着搬演的情节的发展，歌唱他们的感想，直到那场戏剧惨痛的闭幕，南宋亡国，唱出他们最后的长歌当哭：“世事庄周蝴蝶梦，春愁臣甫杜鹃诗！”</li>
+                            <li>“诗史”的看法是一个一偏之见。诗是有血有肉的或东西，史诚然是它的骨干，然而假如单凭内容是否在史书上信而有征这一点来判断诗歌的价值，那就仿佛要从爱克斯光透视里来鉴定图画家和雕刻家所选择的人体美了。</li>
+                            <li>历史考据只扣住表面的迹象。这正是它的克己的美德，要不然它就丧失了谨严，算不得考据，或者变成了不安本分、遇事生风的考据，所谓穿凿附会；而文学创作可以深挖事物的隐藏的本质，曲传人物的未吐露的心理，否则它就没有尽它的艺术的责任，抛弃了它的创造的职权。</li>
+                            <li>《左转》宣公二年记载鉏麑自杀以前的独白，古来好些读者都觉得力气难以相信，至少嫌作史的人交代得不清楚，因为既然是独白，“又谁闻而谁述之耶？”（李元度《天岳山房文钞》卷一《鉏麑论》）但是对于《长恨歌》故事里“夜半无人私语”那桩情节，似乎还没有人死心眼地问“又谁闻而谁述之耶？”或者杀风景地指斥“临邛道士”编造谎话。</li>
+                        </ul>
+                    </div>
+                </div>
+            </el-card>
+            <div>
+                <el-card class="music-wrapper" shadow="hover" :body-style="{ padding: '0px' }">
+                    <div class="title">听音乐</div>
+                    <iframe 
+                        frameborder="no" 
+                        border="0" 
+                        marginwidth="0" 
+                        marginheight="0" 
+                        width="100%" 
+                        height="100" 
+                        src="//music.163.com/outchain/player?type=2&id=609890&auto=1&height=80">
+                    </iframe>
+                </el-card>
+                <el-card class="travel-wrapper"  shadow="hover" :body-style="{ padding: '0px' }">
+                    <div class="title">旅游</div>
+                    <div class="travel-image-box">
+                        <img class="travel-image" src="img/travel/1.JPG">
+                        <img class="travel-image" src="img/travel/2.JPG">
+                        <img class="travel-image" src="img/travel/3.JPG">
+                        <img class="travel-image" src="img/travel/4.JPG">
+                        <img class="travel-image" src="img/travel/5.JPG">
+                        <img class="travel-image" src="img/travel/6.JPG">
+                        <img class="travel-image" src="img/travel/7.JPG">
+                        <img class="travel-image" src="img/travel/8.JPG">
+                    </div>
+                </el-card>
+            </div>
+        </div>
+        <div class="row-2">
+            <el-card class="play-wrapper" shadow="hover" :body-style="{ padding: '0px' }">
+                <div class="title">游戏</div>
+                <div class="play-container">
+                    <div class="play-box-1">
+                        <div class="title-1">阴阳师百闻牌</div>
+                        <div class="play-image-box">
+                            <img class="play-image" src="img/play1/1.GIF">
+                            <img class="play-image" src="img/play1/2.GIF">
+                            <img class="play-image" src="img/play1/3.GIF">
+                            <img class="play-image" src="img/play1/4.GIF">
+                            <img class="play-image" src="img/play1/5.GIF">
+                            <img class="play-image" src="img/play1/6.GIF">
+                            <img class="play-image" src="img/play1/7.GIF">
+                            <img class="play-image" src="img/play1/8.GIF">
+                            <img class="play-image" src="img/play1/9.GIF">
+                        </div>
+                    </div>
+                    <div class="play-box">
+                        <div class="title-1">闪耀暖暖</div>
+                        <div class="play-image-box">
+                            <img class="play-image" src="img/play2/1.JPG">
+                            <img class="play-image" src="img/play2/2.JPG">
+                            <img class="play-image" src="img/play2/3.JPG">
+                            <img class="play-image" src="img/play2/4.JPG">
+                            <img class="play-image" src="img/play2/5.JPG">
+                            <img class="play-image" src="img/play2/6.JPG">
+                            <img class="play-image" src="img/play2/7.JPG">
+                            <img class="play-image" src="img/play2/8.JPG">
+                            <img class="play-image" src="img/play2/9.JPG">
+                        </div>
+                    </div>
+                </div>
+            </el-card>
+        </div>
+    </div>
+    <!-- end of main Container -->
+
+    <!-- 页脚区 -->
+    <div class="footer">
+        <div class="footer-1">邮箱：lylelf@163.com</div>
+        <div class="footer-2">QQ：819044267</div>
+    </div>
+    <!-- end of footer -->
+
+</body>
+<style>
+    @import url("css/global.css");
+    @import url("//unpkg.com/element-ui@2.13.2/lib/theme-chalk/index.css");
+    /* 主体区域 */
+    .mainContainer{
+        width: 1100px;
+        margin: 20px auto;
+        /* margin-bottom: 20px; */
+    }
+    /* 第一行 */
+    .row-1{
+        width: 100%;
+        height: auto;
+        display: flex;
+    }
+    /* 阅读区域 */
+    .reading-wrapper{
+        width: 500px;
+        height: 400px;
+        margin-right: 10px;
+        background-color: rgba(255, 252, 238, 0.61);
+    }
+    .sentences{
+        font-size: 14px;
+        color: gray;
+        line-height: 18px;
+        height: 158px;
+        -webkit-box-flex:1;
+        flex: 1 1;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .book-container-1{
+        margin-top: 7px;
+        padding-left: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgb(221, 170, 29);
+        margin-bottom: 10px;
+        display: flex;
+    }
+    .image1{
+        /* width: 25%; */
+        height: 160px;
+    }
+    .book-container-2{
+        padding-left: 15px;
+        display: flex;
+    }
+    .image2{
+        /* width: 26%; */
+        height: 160px;
+    }
+    /* 音乐区域 */
+    .music-wrapper{
+        width: 530px;
+        height: 160px;
+        background-color: rgba(255, 252, 238, 0.61);
+    }
+    .title{
+        font-size: 20px;
+        line-height: 40px;
+        font-weight: bold;
+        margin-left: 20px;
+        color: rgb(167, 126, 3);
+    }
+    /* 旅游区域 */
+    .travel-wrapper{
+        background-color: rgba(255, 252, 238, 0.61);
+        margin-top: 10px;
+        height: 230px;
+    }
+    .travel-image-box{
+        width: 510px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        height: 188px;
+        -webkit-box-flex:1;
+        flex: 1 1;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    .travel-image{
+        height: 170px;
+        margin-right: 3px;
+    }
+    /* 第二行 */
+    /* 游戏区域 */
+    .row-2{
+        margin-top: 15px;
+        width: 100%;
+    }
+    .play-wrapper{
+        width: 1040px;
+        background-color: rgba(255, 252, 238, 0.61);
+    }
+    .play-container{
+        display: flex;
+    }
+    .play-box-1{
+        width: 500px;
+        height: 300px;
+        padding-right: 10px;
+        margin-left: 10px;
+        border-right: 1px solid rgb(221, 170, 29);
+    }
+    .play-box{
+        width: 500px;
+        height: 300px;
+        margin-right: 10px;
+        padding-left: 10px;
+        /* border: 1px solid rgb(221, 170, 29); */
+    }
+    .title-1{
+        font-size: 15px;
+        line-height: 30px;
+        font-weight: 800px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        color: rgb(167, 126, 3);
+    }
+    .play-image-box{
+        display: flex;
+        width: 500px;
+        height: 250px;
+        -webkit-box-flex:1;
+        flex: 1 1;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    .play-image{
+        margin-right: 3px;
+        height: 100%;
+    }
+</style>
+
+<!-- 在引入element前先引入vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入element的js -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<!-- 目录 -->
+<script>
+    var Main = {
+        data() {
+            return {
+                activeIndex: 1
+            };
+        },
+        methods: {
+            handleSelect(key, keyPath) {
+                console.log(key, keyPath);
+                if(key==1){
+                    window.location.href="index.html"
+                }else if(key==2){
+                    window.location.href="cv.html"
+                }else if(key==3){
+                    window.location.href="projects.html"
+                }else if(key==4){
+                    window.location.href="interests.html"
+                }else{
+                    window.location.href="messageBoard.html"
+                }
+            },
+        }
+    }
+var Ctor = Vue.extend(Main)
+new Ctor().$mount('#sideMenu')
+new Ctor().$mount('#mainContainer')
+</script>
+
+<!-- 获取实时时间 -->
+<script type="text/javascript"> 
+    setInterval(function(){   
+        var date = new Date();   
+        var year = date.getFullYear();    //获取当前年份   
+        var mon = date.getMonth()+1;      //获取当前月份   
+        var da = date.getDate();          //获取当前日   
+        var day = date.getDay();          //获取当前星期几   
+        switch(day){
+            case 0:weekday='日';break;
+            case 1:weekday='一';break;
+            case 2:weekday='二';break;
+            case 3:weekday='三';break;
+            case 4:weekday='四';break;
+            case 5:weekday='五';break;
+            case 6:weekday='六';break;
+        }
+        var h = date.getHours();          //获取小时   
+        var m = date.getMinutes();        //获取分钟   
+        var s = date.getSeconds();        //获取秒   
+        var d = document.getElementById('dateTime');    
+        d.innerHTML='当前时间： '+year+'年'+mon+'月'+da+'日 '+'星期'+weekday+' '+h+':'+m+':'+s;  
+    },10)
+</script>
+
+<!-- live2d白猫 -->
+<script src="/live2d/l2Dwidget.min.js"></script>
+<script type="text/javascript">
+  L2Dwidget.init({
+    model: {
+        jsonPath: '/live2d/tororo/assets/tororo.model.json',
+    },
+    display: {
+        superSample: 2,
+        width: 100,
+        height: 100,
+        position: 'right',
+        hOffset: 0,
+        vOffset: 0,
+    },
+    mobile: {
+        show: true,
+        scale: 1,
+        motion: true,
+    },
+    react: {
+        opacityDefault: 0.8,
+        opacityOnHover: 0.2,
+    }
+  })
+</script>
+<!-- 爱心特效 -->
+<script type="text/javascript">
+
+    (function(window,document,undefined){
+        var hearts = [];
+        window.requestAnimationFrame = (function(){
+            return window.requestAnimationFrame || 
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function (callback){
+                    setTimeout(callback,1000/60);
+                }
+        })();
+        init();
+        function init(){
+            css(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+            attachEvent();
+            gameloop();
+        }
+        function gameloop(){
+            for(var i=0;i<hearts.length;i++){
+                if(hearts[i].alpha <=0){
+                    document.body.removeChild(hearts[i].el);
+                    hearts.splice(i,1);
+                    continue;
+                }
+                hearts[i].y--;
+                hearts[i].scale += 0.004;
+                hearts[i].alpha -= 0.013;
+                hearts[i].el.style.cssText = "left:"+hearts[i].x+"px;top:"+hearts[i].y+"px;opacity:"+hearts[i].alpha+";transform:scale("+hearts[i].scale+","+hearts[i].scale+") rotate(45deg);background:"+hearts[i].color;
+            }
+            requestAnimationFrame(gameloop);
+        }
+        function attachEvent(){
+            var old = typeof window.onclick==="function" && window.onclick;
+            window.onclick = function(event){
+                old && old();
+                createHeart(event);
+            }
+        }
+        function createHeart(event){
+            var d = document.createElement("div");
+            d.className = "heart";
+            hearts.push({
+                el : d,
+                x : event.clientX - 5,
+                y : event.clientY - 5,
+                scale : 1,
+                alpha : 1,
+                color : randomColor()
+            });
+            document.body.appendChild(d);
+        }
+        function css(css){
+            var style = document.createElement("style");
+                style.type="text/css";
+                try{
+                    style.appendChild(document.createTextNode(css));
+                }catch(ex){
+                    style.styleSheet.cssText = css;
+                }
+                document.getElementsByTagName('head')[0].appendChild(style);
+        }
+        function randomColor(){
+            return "rgb("+(~~(Math.random()*255))+","+(~~(Math.random()*255))+","+(~~(Math.random()*255))+")";
+        }
+    })(window,document);
+    
+</script>
+
+</html>
