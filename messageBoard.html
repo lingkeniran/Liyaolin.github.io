@@ -36,19 +36,31 @@
 
     <!-- 主体区 -->
     <div class="mainContainer" id="mainContainer">
-        <div class="title">留言板</div>
-        <el-input
-            type="textarea"
-            :rows="10"
-            placeholder="给我留个言吧~"
-            v-model="textarea">
-        </el-input>
+        <div class="first-line">
+            <div class="title">留言板</div>
+            <div class="doyouLike">
+                喜欢我的网站吗？
+                <select class="select" name="like" > 
+                    <option value="喜欢">喜欢 (*^▽^*)</option>
+                    <option value="超喜欢">超喜欢 ヾ(◍°∇°◍)ﾉﾞ </option>
+                </select>
+            </div>
+        </div>
+        <form class="form">
+            <textarea
+                rows="6"
+                class="input"
+                placeholder="给我留个言吧..."
+                v-model="textarea">
+            </textarea>
+        </form>
+        
         <div class="submit-button">
-            <el-button @click="submit()" class="button" type="warning" plain>提交</el-button>
+            <button @click="submit()" class="button" type="submit">提交</button>
         </div>
         <div class="messageBox" v-if="flag">
-            <div class="message">{{message}}</div>
-            <div class="time">{{time}}</div>
+            <div class="message" id="message">{{message}}</div>
+            <div class="time" id="time">{{time}}</div>
         </div>
     </div>
     <!-- end of mainContainer -->
@@ -78,11 +90,36 @@
         flex-wrap: wrap;
         /* justify-content: center; */
     }
+    /* 第一行 */
+    .first-line{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
     .title{
+        /* width: 100%; */
         font-size: 24px;
         line-height: 50px;
         font-weight: bold;
         color: rgb(167, 126, 3);
+    }
+    .doyouLike{
+        width: 300px;
+        display: flex;
+        align-items: center;
+        font-size: 15px;
+        color: #E6A23C;
+    }
+    .select{
+        color:#E6A23C;
+        border-color:#f5dab1;
+        background:#fdf6ec;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        width: 150px;
+        /* margin-right: 20px; */
     }
     .el-textarea{
         font-size: 16px;
@@ -99,9 +136,18 @@
         border-bottom: 1px solid rgb(167, 126, 3);
     }
     .button{
+        height: 40px;
+        display: inline-block;
+        text-align: center;
+        line-height: 1;
+        white-space: nowrap;
+        color:#E6A23C;
+        background:#fdf6ec;
+        border-color:#f5dab1;
         width: 90px;
         margin-top: 10px;
         border-radius: 25px;
+        margin-right: 10px;
     }
     .messageBox{
         width: 100%;
@@ -111,14 +157,26 @@
         display: flex;
         justify-content: space-between;
     }
+    .form{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .input{
+        border: burlywood solid 1px;
+        width: 800px;
+        height: 200px;
+        margin: 10px auto;
+        padding: 20px;
+        font-size: 16px;
+        font-family: Microsoft Yahei;
+        background-color: rgba(255, 252, 238, 0.61);
+    }
     .message{
         width: 760px;
     }
     .time{
         width: 120px;
-    }
-    .el-textarea__inner{
-        background-color: rgba(255, 252, 238, 0.61);
     }
 </style>
 
